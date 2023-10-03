@@ -8,7 +8,6 @@ const puerto = 8080;
 
 app.use(bodyParser.json());
 
-// Monta los routers de productos y carritos en las rutas /api/products y /api/carts
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 

@@ -4,18 +4,16 @@ const { v4: uuidv4 } = require('uuid');
 
 const router = express.Router();
 
-// Ruta raíz GET para listar todos los productos
+
 router.get('/', (req, res) => {
-  // Implementa la lógica para leer productos desde 'productos.json'
+
   const products = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
 
   res.json(products);
 });
 
-// Ruta GET para obtener un producto por ID
 router.get('/:pid', (req, res) => {
-  const productId = req.params.pid;
-  // Implementa la lógica para buscar un producto por su ID en 'productos.json'
+
   const products = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
 
   const product = products.find((p) => p.id === productId);
@@ -26,7 +24,7 @@ router.get('/:pid', (req, res) => {
   }
 });
 
-// Ruta POST para agregar un nuevo producto
+
 router.post('/', (req, res) => {
   const newProduct = {
     id: uuidv4(),
@@ -40,7 +38,7 @@ router.post('/', (req, res) => {
     thumbnails: req.body.thumbnails || [],
   };
 
-  // Implementa la lógica para agregar un nuevo producto a 'productos.json'
+
   const products = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
 
   products.push(newProduct);
@@ -49,12 +47,12 @@ router.post('/', (req, res) => {
   res.json(newProduct);
 });
 
-// Ruta PUT para actualizar un producto por ID
+
 router.put('/:pid', (req, res) => {
   const productId = req.params.pid;
   const updatedProduct = req.body;
 
-  // Implementa la lógica para actualizar un producto en 'productos.json'
+
   const products = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
   const existingProductIndex = products.findIndex((p) => p.id === productId);
 
@@ -67,11 +65,10 @@ router.put('/:pid', (req, res) => {
   }
 });
 
-// Ruta DELETE para eliminar un producto por ID
+
 router.delete('/:pid', (req, res) => {
   const productId = req.params.pid;
 
-  // Implementa la lógica para eliminar un producto en 'productos.json'
   const products = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
   const updatedProducts = products.filter((p) => p.id !== productId);
 
