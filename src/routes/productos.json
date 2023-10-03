@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "title": "celular",
+    "description": "Descripción del Producto 1",
+    "code": "P1",
+    "price": 10.99,
+    "status": true,
+    "stock": 100,
+    "category": "Categoría 1",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "tablet",
+    "description": "Descripción del Producto 2",
+    "code": "P2",
+    "price": 20,
+    "status": true,
+    "stock": 100,
+    "category": "Categoría 2",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": "105e5830-e8bc-48f9-a74f-a9f3765c210e",
+    "title": "mp3",
+    "description": "Descripción del producto de prueba",
+    "code": "PR001",
+    "price": 4000,
+    "status": true,
+    "stock": 100,
+    "category": "Electrónica",
+    "thumbnails": []
+  },
+  {
+    "id": "7eef4641-e796-4215-9063-5847b80e408f",
+    "title": "mp6",
+    "description": "Descripción del producto de prueba",
+    "code": "PR006",
+    "price": 50000,
+    "status": true,
+    "stock": 100,
+    "category": "Electrónica",
+    "thumbnails": []
+  }
+]
+
