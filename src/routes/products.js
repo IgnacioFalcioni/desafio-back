@@ -28,7 +28,7 @@ router.get('/:pid', (req, res) => {
 router.post('/', (req, res) => {
   const newProduct = {
     id: uuidv4(),
-    title: req.body.title,
+    nombre: req.body.title,
     description: req.body.description,
     code: req.body.code,
     price: req.body.price,

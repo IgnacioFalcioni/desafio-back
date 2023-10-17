@@ -6,6 +6,10 @@ const handlebars = require('express-handlebars');
 const http = require('http');
 const { Server } = require('socket.io');
 const fs = require('fs'); 
+const viewRouter = require('../src/routes/view.router.js');
+const path = require('path');
+
+
 
 
 
@@ -23,9 +27,11 @@ app.use(bodyParser.json());
 
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, '../src/views'));
 
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
+app.use('/api/view', viewRouter); 
 
 app.get('/home', (req,res)=>{
 
@@ -35,6 +41,8 @@ app.get('/home', (req,res)=>{
 
 
 app.get('/realtimeproducts', (req,res)=>{
+
+  const productos = JSON.parse(fs.readFileSync('./src/routes/productos.json', 'utf-8'));
 
 
   res.render('realTimeProducts', {productos});
