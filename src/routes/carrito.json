@@ -4,7 +4,12 @@
     "products": [
       {
         "id": "2",
-        "quantity": 2
+        "quantity": 17
+      },
+      {
+        "id": "3",
+        "quantity": 15
+
       }
     ]
   }

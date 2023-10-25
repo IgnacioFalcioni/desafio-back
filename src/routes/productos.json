@@ -1,19 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "celular",
-    "description": "Descripción del Producto 1",
-    "code": "P1",
-    "price": 10.99,
-    "status": true,
-    "stock": 100,
-    "category": "Categoría 1",
-    "thumbnails": [
-      "imagen1.jpg",
-      "imagen2.jpg"
-    ]
-  },
-  {
     "id": "2",
     "title": "tablet",
     "description": "Descripción del Producto 2",
@@ -48,6 +34,48 @@
     "stock": 100,
     "category": "Electrónica",
     "thumbnails": []
+  },
+  {
+    "id": "fd1b23d2-c8c6-4a5b-918e-77c0a63869c3",
+    "nombre": "celular",
+    "description": "Descripción del Producto 1",
+    "code": "P3431",
+    "price": 10.99,
+    "status": true,
+    "stock": 100,
+    "category": "Categoría 1",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": "7d19713a-c1b9-4a84-80b9-407354a34a83",
+    "nombre": "celular",
+    "description": "Descripción del Producto 1",
+    "code": "P3431",
+    "price": 10.99,
+    "status": true,
+    "stock": 100,
+    "category": "Categoría 1",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
+  },
+  {
+    "id": "c4344ed5-353c-436c-923b-c96aa1456f2d",
+    "nombre": "celular",
+    "description": "Descripción del Producto 1",
+    "code": "P3431",
+    "price": 10.99,
+    "status": true,
+    "stock": 100,
+    "category": "Categoría 1",
+    "thumbnails": [
+      "imagen1.jpg",
+      "imagen2.jpg"
+    ]
   }
 ]
 
