@@ -1,6 +1,40 @@
-<form action="/crear-producto" method="POST">
-  <label for="nombre">Nombre del producto</label>
-  <input type="text" name="nombre" id="nombre" required>
+<table>
+  <thead>
+    <th>Nombre</th>
+    <th>Desc</th>
+    <th>Precio</th>
+  </thead>
+  <tbody>
+
+  {{#each productos}}
+            <tbody>
+                <tr>
+                  
+                        <td>{{name}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.price}}</td>
+                    <td>
+                     <span>
+                        <a href="/eliminar-producto/{{_id}}" title="Delete this todo item">Delete</a>
+                     </span>
+                     </td>
+                </tr>
+            </tbody>
+            {{/each}}
+  </tbody>
+</table>
+
+
+<form action="/api/products/crear-producto" method="POST">
+  <label for="name">Nombre del producto</label>
+  <input type="text" name="name" id="name" required>
+ 
+ <label for="description">Desc del producto</label>
+  <input type="text" name="description" id="description" required>
+ 
+
+ <label for="price">Precio del producto</label>
+  <input type="text" name="price" id="price" required>
  
 
   <button type="submit">Crear Producto</button>

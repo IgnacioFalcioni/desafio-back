@@ -1,0 +1,27 @@
+
+<body>
+    <h2>Bienvenido!</h2>
+    
+</body>
+</html>
+
+
+<form action="/api/products/crear-producto" method="POST">
+  <label for="name">Nombre del producto</label>
+  <input type="text" name="name" id="name" required>
+ 
+
+  <button type="submit">Crear Producto</button>
+</form>
+
+<body>
+    
+
+    {{#if (eq user.role 'admin')}}
+      <p>¡Eres un administrador!</p>
+    {{else}}
+      <p>¡Eres un usuario regular!</p>
+    {{/if}}
+
+    <a href="/logout">Logout</a>
+</body>
