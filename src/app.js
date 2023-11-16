@@ -14,6 +14,9 @@ const session = require("express-session");
 const mongoose = require('./routes/db.js');
 const fileStore = require("session-file-store");
 const handlebarsHelpers = require('handlebars-helpers')();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
 
 const app = express();
 const server = http.createServer(app);
@@ -81,6 +84,60 @@ app.get('/logout', (req, res) => {
   });
 });
 
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+
+  const user = users.find(u => u.email === email);
+
+  if (user) {
+ 
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordMatch) {
+      req.session.user = user;
+      return res.redirect('/productos');
+    }
+  }
+
+  return res.redirect('/login');
+});
+
+
+
+
+passport.use(new LocalStrategy(
+  { usernameField: 'email' },
+  async (email, password, done) => {
+    const user = users.find(u => u.email === email);
+
+    if (!user) {
+      return done(null, false, { message: 'Usuario no encontrado' });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+      return done(null, false, { message: 'Contraseña incorrecta' });
+    }
+
+    return done(null, user);
+  }
+));
+
+passport.serializeUser((user, done) => {
+  done(null, user.email);
+});
+
+passport.deserializeUser((email, done) => {
+  const user = users.find(u => u.email === email);
+  done(null, user);
+});
+
+app.use(session({ secret: 'tu_secreto', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: true }));
 
 
 
