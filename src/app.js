@@ -16,6 +16,7 @@ const fileStore = require("session-file-store");
 const handlebarsHelpers = require('handlebars-helpers')();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const check = require('express-validator');
 
 
 const app = express();
@@ -46,6 +47,33 @@ app.use(session({
 
   saveUninitialized:true
 }));
+
+const { usuariosGet, usuariosPut, usuariosPost, usuariosDelete, usuariosPatch } = require(" ../controllers/usuarios"); 
+const router = Router ();
+ router.get('/', usuariosGet ); 
+ router-put('/:id', [
+   check('id', "No es un ID válido"). isMongoId(), 
+   check( 'id') .custom( existeUsuarioPorId ), 
+   check('rol') .custom( esRoleValido ),
+    validarCampos
+  ] ,usuariosPut ); 
+  router.post('/',[
+     check(' nombre', 'El nombre es obligatorio') .not () . isEmpty(), 
+  check('password', 'El password debe de ser más de 6 letras').isLength({ min: 6 }), 
+  check(' correo' ,'El correo no es válido').isEmail (),
+   check(' correo'). custom ( emailexiste), 
+   
+    check('rol').custom( esRoleValido ),
+     validarCampos 
+    ], usuariosPost );
+    
+    router .delete('/:id',[
+       check('id', 'No es un ID válido'). isMongoId() ,
+        check('id').custom( existeUsuarioPorId), 
+        validarCampos 
+      ],usuariosDelete ); 
+      
+router .patch('/' , usuariosPatch);
 
 const users = [
   { id: 1, email: 'adminCoder@coder.com', password: 'adminCod3r123', role: 'admin' },
